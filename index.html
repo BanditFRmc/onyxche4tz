@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Onyx — Che4ts</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 50% -20%,
+          rgba(255,255,255,0.08),
+          transparent 35%
+        ),
+        #050505;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(15px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 7px rgba(255,255,255,0.65));
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.7);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 70px;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+
+      filter:
+        drop-shadow(0 0 8px rgba(255,255,255,0.7))
+        drop-shadow(0 0 35px rgba(255,255,255,0.15));
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 100px);
+      letter-spacing: -5px;
+      font-weight: 900;
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.25),
+        0 0 40px rgba(255,255,255,0.08);
+    }
+
+    .hero p {
+      color: #888;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+      padding-bottom: 100px;
+    }
+
+    .section-title {
+      margin-bottom: 25px;
+      font-size: 25px;
+    }
+
+    .folders {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .folder {
+      cursor: pointer;
+      padding: 25px;
+      border-radius: 16px;
+
+      border:
+        1px solid rgba(255,255,255,0.09);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.055),
+          rgba(255,255,255,0.015)
+        );
+
+      transition: 0.25s;
+    }
+
+    .folder:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(255,255,255,0.25);
+
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.06);
+    }
+
+    .folder-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .folder h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .folder p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #folderView {
+      display: none;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      color: white;
+    }
+
+    .empty {
+      padding: 50px 20px;
+      text-align: center;
+
+      border:
+        1px solid rgba(255,255,255,0.07);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,0.02);
+
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #555;
+
+      border-top:
+        1px solid rgba(255,255,255,0.07);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 0 5%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="brand">
+
+      <img
+        src="bwkirby.webp"
+        alt="Onyx logo"
+      >
+
+      <span>ONYX</span>
+
+    </div>
+
+    <nav>
+
+      <a
+        href="#"
+        onclick="showFolders()"
+      >
+        Files
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <section class="hero">
+
+    <img
+      class="hero-logo"
+      src="bwkirby.webp"
+      alt="Onyx"
+    >
+
+    <h1>
+      ONYX
+    </h1>
+
+    <p>
+      Che4ts and t00ls distribution.
+    </p>
+
+  </section>
+
+
+  <main class="container">
+
+    <section id="folderList">
+
+      <h2 class="section-title">
+        Directories
+      </h2>
+
+      <div class="folders">
+
+        <div
+          class="folder"
+          onclick="openFolder('clients')"
+        >
+
+          <div class="folder-icon">
+            📁
+          </div>
+
+          <h3>
+            Clients
+          </h3>
+
+          <p>
+            Che4t client releases
+            and related files.
+          </p>
+
+        </div>
+
+
+        <div
+          class="folder"
+          onclick="openFolder('tools')"
+        >
+
+          <div class="folder-icon">
+            📁
+          </div>
+
+          <h3>
+            Tools
+          </h3>
+
+          <p>
+            Utilities and useful tools.
+          </p>
+
+        </div>
+
+
+        <div
+          class="folder"
+          onclick="openFolder('games')"
+        >
+
+          <div class="folder-icon">
+            📁
+          </div>
+
+          <h3>
+            Games
+          </h3>
+
+          <p>
+            Games to use these on.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="folderView">
+
+      <div
+        class="back"
+        onclick="showFolders()"
+      >
+        ← Back to directories
+      </div>
+
+      <h2
+        class="section-title"
+        id="folderTitle"
+      ></h2>
+
+      <div
+        class="folders"
+        id="subfolders"
+      ></div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Onyx. All rights reserved.
+  </footer>
+
+
+  <script>
+
+    const folders = {
+
+      clients: {
+        title: "Clients",
+        subfolders: []
+      },
+
+      tools: {
+        title: "Tools",
+        subfolders: []
+      },
+
+      games: {
+
+        title: "Games",
+
+        subfolders: [
+
+          {
+            id: "discord",
+            name: "Discord",
+            icon: "🎮",
+            description:
+              "Discord files and tools."
+          },
+
+          {
+  id: "minecraft",
+  name: "Minecraft",
+  icon: "⛏️",
+  description: "Minecraft che4ts and tools."
+},
+
+{
+  id: "cs2",
+  name: "CS2",
+  icon: "🔫",
+  description: "CS2 che4ts and tools."
+}
+
+        ]
+
+      }
+
+    };
+
+
+    function openFolder(folderName) {
+
+      const folder =
+        folders[folderName];
+
+      if (!folder) {
+        return;
+      }
+
+      document
+        .getElementById("folderList")
+        .style.display = "none";
+
+      document
+        .getElementById("folderView")
+        .style.display = "block";
+
+      document
+        .getElementById("folderTitle")
+        .textContent =
+        folder.title;
+
+      const subfolders =
+        document.getElementById(
+          "subfolders"
+        );
+
+      subfolders.innerHTML = "";
+
+      if (
+        folder.subfolders &&
+        folder.subfolders.length > 0
+      ) {
+
+        folder.subfolders.forEach(
+          item => {
+
+            subfolders.innerHTML += `
+
+              <div class="folder">
+
+                <div class="folder-icon">
+                  ${item.icon || "📁"}
+                </div>
+
+                <h3>
+                  ${item.name}
+                </h3>
+
+                <p>
+                  ${item.description}
+                </p>
+
+              </div>
+
+            `;
+
+          }
+        );
+
+      } else {
+
+        subfolders.innerHTML = `
+
+          <div class="empty">
+            This directory is currently empty.
+          </div>
+
+        `;
+
+      }
+
+      window.scrollTo({
+
+        top:
+          document.querySelector(
+            ".container"
+          ).offsetTop - 100,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+
+    function showFolders() {
+
+      document
+        .getElementById("folderList")
+        .style.display =
+        "block";
+
+      document
+        .getElementById("folderView")
+        .style.display =
+        "none";
+
+      window.scrollTo({
+
+        top:
+          document.querySelector(
+            ".container"
+          ).offsetTop - 100,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
