@@ -53,8 +53,7 @@
       width: 42px;
       height: 42px;
       object-fit: contain;
-      filter:
-        drop-shadow(0 0 7px rgba(255,255,255,0.65));
+      filter: drop-shadow(0 0 7px rgba(255,255,255,0.65));
     }
 
     nav a {
@@ -62,13 +61,10 @@
       text-decoration: none;
       margin-left: 28px;
       font-size: 14px;
-      transition: 0.2s;
     }
 
     nav a:hover {
       color: white;
-      text-shadow:
-        0 0 10px rgba(255,255,255,0.7);
     }
 
     .hero {
@@ -92,10 +88,6 @@
       font-size: clamp(55px, 9vw, 100px);
       letter-spacing: -5px;
       font-weight: 900;
-
-      text-shadow:
-        0 0 10px rgba(255,255,255,0.25),
-        0 0 40px rgba(255,255,255,0.08);
     }
 
     .hero p {
@@ -118,26 +110,14 @@
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 10px;
 
-      background:
-        rgba(255,255,255,0.06);
-
-      box-shadow:
-        0 0 20px rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.06);
 
       transition: 0.25s;
     }
 
     .discord-button:hover {
       transform: translateY(-3px);
-
-      border-color:
-        rgba(255,255,255,0.4);
-
-      background:
-        rgba(255,255,255,0.1);
-
-      box-shadow:
-        0 0 30px rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.1);
     }
 
     .container {
@@ -163,8 +143,7 @@
       padding: 25px;
       border-radius: 16px;
 
-      border:
-        1px solid rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.09);
 
       background:
         linear-gradient(
@@ -178,9 +157,7 @@
 
     .folder:hover {
       transform: translateY(-5px);
-
-      border-color:
-        rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.25);
 
       box-shadow:
         0 0 30px rgba(255,255,255,0.06);
@@ -212,26 +189,32 @@
       color: #aaa;
       cursor: pointer;
       font-size: 14px;
-      transition: 0.2s;
     }
 
     .back:hover {
       color: white;
     }
 
-    .empty {
-      padding: 50px 20px;
+    .resource-link {
+      display: block;
+      margin-top: 15px;
+      padding: 12px;
+
+      color: white;
+      text-decoration: none;
       text-align: center;
 
-      border:
-        1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9px;
 
-      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
 
-      background:
-        rgba(255,255,255,0.02);
+      transition: 0.2s;
+    }
 
-      color: #666;
+    .resource-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.25);
     }
 
     footer {
@@ -265,328 +248,339 @@
 
 <body>
 
-  <header>
+<header>
 
-    <div class="brand">
-
-      <img
-        src="bwkirby.webp"
-        alt="Onyx logo"
-      >
-
-      <span>ONYX</span>
-
-    </div>
-
-    <nav>
-
-      <a
-        href="#"
-        onclick="showFolders()"
-      >
-        Files
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <section class="hero">
+  <div class="brand">
 
     <img
-      class="hero-logo"
       src="bwkirby.webp"
-      alt="Onyx"
+      alt="Onyx logo"
     >
 
-    <h1>
-      ONYX
-    </h1>
+    <span>ONYX</span>
 
-    <p>
-      Che4ts and t00ls distribution.
-    </p>
+  </div>
+
+  <nav>
 
     <a
-      class="discord-button"
-      href="https://discord.gg/Q6bqzB75BH"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#"
+      onclick="showFolders()"
     >
-      Join our Discord
+      Files
     </a>
+
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <img
+    class="hero-logo"
+    src="bwkirby.webp"
+    alt="Onyx"
+  >
+
+  <h1>
+    ONYX
+  </h1>
+
+  <p>
+    Che4ts and t00ls distribution.
+  </p>
+
+  <a
+    class="discord-button"
+    href="https://discord.gg/Q6bqzB75BH"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join our Discord
+  </a>
+
+</section>
+
+
+<main class="container">
+
+  <section id="folderList">
+
+    <h2 class="section-title">
+      Directories
+    </h2>
+
+    <div class="folders">
+
+      <div
+        class="folder"
+        onclick="openFolder('discord')"
+      >
+
+        <div class="folder-icon">
+          🎮
+        </div>
+
+        <h3>
+          Discord
+        </h3>
+
+        <p>
+          Custom widgets, plugins and tutorials.
+        </p>
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openFolder('minecraft')"
+      >
+
+        <div class="folder-icon">
+          ⛏️
+        </div>
+
+        <h3>
+          Minecraft
+        </h3>
+
+        <p>
+          Minecraft che4ts and tools.
+        </p>
+
+      </div>
+
+
+      <div
+        class="folder"
+        onclick="openFolder('cs2')"
+      >
+
+        <div class="folder-icon">
+          🔫
+        </div>
+
+        <h3>
+          CS2
+        </h3>
+
+        <p>
+          CS2 che4ts and tools.
+        </p>
+
+      </div>
+
+    </div>
 
   </section>
 
 
-  <main class="container">
+  <section id="folderView">
 
-    <section id="folderList">
+    <div
+      class="back"
+      onclick="showFolders()"
+    >
+      ← Back to directories
+    </div>
 
-      <h2 class="section-title">
-        Directories
-      </h2>
+    <h2
+      class="section-title"
+      id="folderTitle"
+    ></h2>
 
-      <div class="folders">
+    <div
+      class="folders"
+      id="subfolders"
+    ></div>
 
-        <div
-          class="folder"
-          onclick="openFolder('clients')"
-        >
+  </section>
 
-          <div class="folder-icon">
-            📁
-          </div>
+</main>
 
-          <h3>
-            Clients
-          </h3>
 
-          <p>
-            Che4t client releases
-            and related files.
-          </p>
+<footer>
+  © 2026 Onyx. All rights reserved.
+</footer>
 
+
+<script>
+
+const folders = {
+
+  discord: {
+
+    title: "Discord",
+
+    links: [
+
+      {
+        name: "Custom Widgets",
+        description: "Discord custom widget website.",
+        url: "https://discordwidgets.com/"
+      },
+
+      {
+        name: "Plugins",
+        description: "Discord plugin resources.",
+        url: "https://vencord.dev/"
+      },
+
+      {
+        name: "Tutorial",
+        description: "Discord customisation tutorial.",
+        url: "https://www.youtube.com/watch?v=OuIeseVuVm0"
+      },
+
+      {
+        name: "Vencord Tut",
+        description: "How to use vencord.",
+        url: "https://www.youtube.com/watch?v=AoD0BeDnZSg"
+      }
+
+    ]
+
+  },
+
+
+  minecraft: {
+
+    title: "Minecraft",
+
+    links: [
+
+      {
+        name: "Wurst",
+        description: "H4ck client.",
+        url: "https://www.wurstclient.net/"
+      },
+
+      {
+        name: "Meteor",
+        description: "H4ck client.",
+        url: "https://www.meteorclient.com/"
+      },
+
+      {
+        name: "LB",
+        description: "H4ck client.",
+        url: "https://liquidbounce.net/"
+      }
+
+    ]
+
+  },
+
+
+  cs2: {
+
+    title: "CS2",
+
+    links: [
+
+      {
+        name: "Orbit",
+        description: "Orbit H4ck Client.",
+        url: "https://discord.gg/wUFAsyjGu"
+      }
+
+    ]
+
+  }
+
+};
+
+
+function openFolder(folderName) {
+
+  const folder = folders[folderName];
+
+  document
+    .getElementById("folderList")
+    .style.display = "none";
+
+  document
+    .getElementById("folderView")
+    .style.display = "block";
+
+  document
+    .getElementById("folderTitle")
+    .textContent = folder.title;
+
+  const subfolders =
+    document.getElementById("subfolders");
+
+  subfolders.innerHTML = "";
+
+  folder.links.forEach(link => {
+
+    subfolders.innerHTML += `
+
+      <div class="folder">
+
+        <div class="folder-icon">
+          🔗
         </div>
 
+        <h3>
+          ${link.name}
+        </h3>
 
-        <div
-          class="folder"
-          onclick="openFolder('tools')"
+        <p>
+          ${link.description}
+        </p>
+
+        <a
+          class="resource-link"
+          href="${link.url}"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-
-          <div class="folder-icon">
-            📁
-          </div>
-
-          <h3>
-            Tools
-          </h3>
-
-          <p>
-            Utilities and useful tools.
-          </p>
-
-        </div>
-
-
-        <div
-          class="folder"
-          onclick="openFolder('games')"
-        >
-
-          <div class="folder-icon">
-            🎮
-          </div>
-
-          <h3>
-            Games
-          </h3>
-
-          <p>
-            Games to use these on.
-          </p>
-
-        </div>
+          Open
+        </a>
 
       </div>
 
-    </section>
+    `;
+
+  });
+
+  window.scrollTo({
+    top:
+      document.querySelector(
+        ".container"
+      ).offsetTop - 100,
+
+    behavior: "smooth"
+  });
+
+}
 
 
-    <section id="folderView">
+function showFolders() {
 
-      <div
-        class="back"
-        onclick="showFolders()"
-      >
-        ← Back to directories
-      </div>
+  document
+    .getElementById("folderList")
+    .style.display = "block";
 
-      <h2
-        class="section-title"
-        id="folderTitle"
-      ></h2>
+  document
+    .getElementById("folderView")
+    .style.display = "none";
 
-      <div
-        class="folders"
-        id="subfolders"
-      ></div>
+  window.scrollTo({
+    top:
+      document.querySelector(
+        ".container"
+      ).offsetTop - 100,
 
-    </section>
+    behavior: "smooth"
+  });
 
-  </main>
+}
 
-
-  <footer>
-    © 2026 Onyx. All rights reserved.
-  </footer>
-
-
-  <script>
-
-    const folders = {
-
-      clients: {
-        title: "Clients",
-        subfolders: []
-      },
-
-      tools: {
-        title: "Tools",
-        subfolders: []
-      },
-
-      games: {
-
-        title: "Games",
-
-        subfolders: [
-
-          {
-            id: "discord",
-            name: "Discord",
-            icon: "🎮",
-            description:
-              "Discord files and tools."
-          },
-
-          {
-            id: "minecraft",
-            name: "Minecraft",
-            icon: "⛏️",
-            description:
-              "Minecraft che4ts and tools."
-          },
-
-          {
-            id: "cs2",
-            name: "CS2",
-            icon: "🔫",
-            description:
-              "CS2 che4ts and tools."
-          }
-
-        ]
-
-      }
-
-    };
-
-
-    function openFolder(folderName) {
-
-      const folder =
-        folders[folderName];
-
-      if (!folder) {
-        return;
-      }
-
-      document
-        .getElementById("folderList")
-        .style.display = "none";
-
-      document
-        .getElementById("folderView")
-        .style.display = "block";
-
-      document
-        .getElementById("folderTitle")
-        .textContent =
-        folder.title;
-
-      const subfolders =
-        document.getElementById(
-          "subfolders"
-        );
-
-      subfolders.innerHTML = "";
-
-      if (
-        folder.subfolders &&
-        folder.subfolders.length > 0
-      ) {
-
-        folder.subfolders.forEach(
-          item => {
-
-            subfolders.innerHTML += `
-
-              <div class="folder">
-
-                <div class="folder-icon">
-                  ${item.icon || "📁"}
-                </div>
-
-                <h3>
-                  ${item.name}
-                </h3>
-
-                <p>
-                  ${item.description}
-                </p>
-
-              </div>
-
-            `;
-
-          }
-        );
-
-      } else {
-
-        subfolders.innerHTML = `
-
-          <div class="empty">
-            This directory is currently empty.
-          </div>
-
-        `;
-
-      }
-
-      window.scrollTo({
-
-        top:
-          document.querySelector(
-            ".container"
-          ).offsetTop - 100,
-
-        behavior: "smooth"
-
-      });
-
-    }
-
-
-    function showFolders() {
-
-      document
-        .getElementById("folderList")
-        .style.display =
-        "block";
-
-      document
-        .getElementById("folderView")
-        .style.display =
-        "none";
-
-      window.scrollTo({
-
-        top:
-          document.querySelector(
-            ".container"
-          ).offsetTop - 100,
-
-        behavior: "smooth"
-
-      });
-
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
